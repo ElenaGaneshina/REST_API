@@ -14,7 +14,6 @@ import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 import static core.GeoConstants.*;
@@ -56,8 +55,8 @@ public class GeoApi {
     //get ready Speller answers list form api response
 
 
-        public static List <GeoAnswer> getGeoAnswers(Response response){
-        return new Gson().fromJson(response.asString(), new TypeToken<List<GeoAnswer>>() {}.getType());
+        public static GeoAnswer getGeoAnswers(Response response){
+        return new Gson().fromJson(response.asString(), new TypeToken<GeoAnswer>() {}.getType());
     }
 
     //set base request and response specifications tu use in tests
