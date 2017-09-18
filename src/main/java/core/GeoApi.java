@@ -52,9 +52,7 @@ public class GeoApi {
         return new ApiBuilder(api);
 
 }
-    //get ready Speller answers list form api response
-
-
+    //get ready Geo answers list form api response
         public static GeoAnswer getGeoAnswers(Response response){
         return new Gson().fromJson(response.asString(), new TypeToken<GeoAnswer>() {}.getType());
     }
