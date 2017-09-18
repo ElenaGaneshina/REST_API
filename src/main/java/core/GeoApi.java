@@ -1,19 +1,18 @@
 package core;
 
 
+import beans.GeoAnswer;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import io.restassured.RestAssured;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.response.Response;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -55,8 +54,10 @@ public class GeoApi {
 
 }
     //get ready Speller answers list form api response
-        public static List<GeoApiAnswer> getGeoAnswers(Response response){
-        return new Gson().fromJson(response.asString(), new TypeToken<List<GeoApiAnswer>>() {}.getType());
+
+
+        public static List <GeoAnswer> getGeoAnswers(Response response){
+        return new Gson().fromJson(response.asString(), new TypeToken<List<GeoAnswer>>() {}.getType());
     }
 
     //set base request and response specifications tu use in tests

@@ -1,19 +1,17 @@
 
 
-import com.google.gson.JsonElement;
-import core.GeoApiAnswer;
+import beans.GeoAnswer;
+import core.GeoApi;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import core.GeoApi;
 
 import java.util.List;
 
 import static core.GeoConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -137,7 +135,7 @@ public class TestGeoJSON {
     //validate an object we've got in API response
     @Test
     public void validateGeoAnswerAsAnObject() {
-        List<GeoApiAnswer> answers =
+        List<GeoAnswer> answers =
                 GeoApi.getGeoAnswers(
                         GeoApi.with().geocode(PARAM_GEOCODE).format(Formats.json).callApi());
         assertThat(answers.get(0).equals("request"), equalTo("geocode"));
